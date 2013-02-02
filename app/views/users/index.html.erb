@@ -1,0 +1,25 @@
+<div class="div_cp">Пользователи</div>
+<div class="div_st">
+  <table class="ed_tb">
+  <tr>
+    <th>Имя</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="<%= cycle("odd", "even") %>">
+    <td><%= user.name %></td>
+    <td><%= link_to 'Показать', user %></td>
+    <td><%= link_to 'Редактировать', edit_user_path(user) %></td>
+    <td><%= link_to 'Удалить', user, confirm: 'Вы уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить', new_user_path %>
+</div>
+

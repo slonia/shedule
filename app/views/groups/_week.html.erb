@@ -1,0 +1,46 @@
+<% rows=0 %>
+<% days = Day.find_all_by_group_id(group.id) %>
+<% cols=days.size %>
+<% subs=Array.new(cols) %>
+<% days.each do |day| %>
+	<% s = Subject.find_all_by_day_id(day.id) %>
+   <% maxn=s.max_by(&:num).num %>
+   <% rows=[rows,maxn].max %>
+   <% mas=Array.new(maxn) %>
+   <% s.each do |ms| %>
+      <% mas[ms.num-1]=ms %>
+   <% end %>
+   <% subs[day.num-1]=mas %>
+<% end %>
+<% if rows>0 %>
+<table id="week_timetable">
+   <% for i in 0...cols %>
+      <th>
+      <%= Day::DAY_NAMES[i] %>
+      </th>
+   <% end %>
+
+   <% for i in 0...rows %>
+      <tr>
+         <% for j in 0...cols %>
+         <% subjects=subs[j] %>
+            <% if subjects[i].nil? or subjects[i].num!=i+1 or subjects[i].name=="#пусто#"%>
+               <td>
+               </td>
+            <% else %>
+               <td class="td_day">
+               <div class="stype">
+                  <%= subjects[i].name %>
+               </div>
+               <%= subjects[i].teacher || "<br>" %><br>
+               <%= subjects[i].place || "<br>" %><br>
+               </td>
+            <% end %>  
+         <% end %>
+      </tr>
+   <% end %>
+
+</table>
+<% end %>
+<hr>
+<br>

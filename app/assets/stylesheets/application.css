@@ -1,0 +1,211 @@
+/*
+*= require_tree
+*/
+body
+{
+	height: 100%;
+	background-image: url(back2.jpg);
+	margin: 0;
+	cursor: default;
+}
+#content
+{
+	background-image: url(back.jpg);
+	min-height: 700px;
+	width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	-moz-box-shadow: 0px 0px 16px 4px #000;
+	-webkit-box-shadow: 0px 0px 16px 4px #000;
+	box-shadow: 0px 0px 16px 4px #000;
+}
+#university_div select, #faculty_div select 
+{ 
+	width: 80%; 
+}
+#hello
+{
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-left: 25px;
+	padding-top: 15px;
+	font-size: 20pt;
+	font-weight: 900;
+	background-color: #dcd5fb;
+	border-top: 2px dashed white;
+	border-bottom: 2px dashed white;
+	height: 40px;
+}
+.but, .but_r
+{
+	display: inline-block;
+	border-radius: 4px;
+	border: 1px solid black;
+	height: 18px; 
+	padding: 4px;
+	font-weight: 900;
+	cursor: pointer;
+	font-size: 12pt;
+	background: Lavender; 
+}
+.but_r
+{
+	float: right;
+}
+.but:hover, .but_r:hover
+{
+	
+	background: AliceBlue; 
+}
+a
+{
+	color: #154366;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+.div_st, .div_cp
+{
+	background-color: white;
+	border-radius: 4px;
+	padding: 8px;
+	border: 1px solid black;
+}
+.div_cp
+{
+	margin-bottom: 16px;
+	padding-top: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	font-size: 14pt;
+	font-weight: bold;
+	min-height: 26px;
+}
+fieldset
+{
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border: 1px solid black;
+	background-color: GhostWhite;
+	display: inline;
+}
+.even
+{
+	background-color: Gainsboro;
+}
+#adm div
+{
+	display: inline-block;
+}
+.sub
+{
+	width: 150px;
+}
+#adm form
+{
+	display: inline-block;
+}
+table 
+{
+	width: 96%;
+}
+#week_timetable
+{
+	width: 100%;
+	background-color: lavender;
+	table-layout: fixed;
+	border-radius: 8px;
+	padding: 8px;
+	border: 1px solid black;
+}
+#week_timetable th
+{
+	text-decoration: underline;
+}
+#week_timetable tr 
+{
+	min-height: 16px;
+	height: 16px;
+}
+#week_timetable td 
+{
+	border: 1px solid black;
+	border-radius: 4px;
+	vertical-align: top;
+	padding-left: 4px;
+	background-color: White;
+}
+.ui-sortable
+{
+	cursor: move;
+}
+.add_fields
+{
+	display: block;
+}
+.ed_tb
+{
+	border: none;
+	border-spacing:0;
+  border-collapse:collapse;
+}
+.ed_tb td
+{
+	border: 1px solid black;
+}
+.stype
+{
+	background-color: #dcd5fb;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-weight: 900;
+	margin: -1px;
+	margin-left: -4px;
+	padding-left: 8px;
+	border-bottom: 1px solid black;
+}
+ul 
+{
+	font-weight: 900;
+}
+ul li 
+{
+	font-weight: normal;
+}
+.stype_0
+{
+	background-color: #6A7685;
+}
+.stype_1
+{
+	background-color: #8D9DB2;
+}
+.stype_2
+{
+	background-color: #B0C4DE;
+}
+.stype_3
+{
+	background-color: #C0D0E5;
+}
+.stype_4
+{
+	background-color: #fff;
+}
+#course_div select
+{
+	width: 50px;
+}
+.group_name
+{
+	background-color: #dcd5fb;
+	font-weight: 900;
+	border-radius: 4px;
+	width: 150px;
+	padding: 6px;
+	border: 1px solid black;
+}

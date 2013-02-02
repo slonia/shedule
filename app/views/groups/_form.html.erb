@@ -1,0 +1,41 @@
+ <% if params[:action]=="new" %>
+ <div id="university_div">
+  <%= render :template => "universities/select" %>
+</div>
+<div id="faculty_div">
+</div>
+<div id="course_div">
+</div>
+<% end %>
+<%= form_for(@group, :html => {:id=>"gr_f"} ) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Группа: " %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+  <%= f.hidden_field :course_id %>
+</div>
+  <div id="sorts_d_<%= f.object.id %>">
+  <%= f.fields_for :days do |builder| %>
+    <%= render 'day_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Добавить день", f, :days %>
+  </div>
+  <div class="actions">
+    <%= button_to_function "Отправить", "renum()" %>
+  </div>
+<% end %>

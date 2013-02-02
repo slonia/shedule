@@ -1,0 +1,24 @@
+<div class="div_cp">
+Доступ к странице ограничен
+</div>
+<div class="div_st">
+  <% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag do %>
+    <fieldset>
+      Введите ваши данные:
+      <div>
+        <%= label_tag :name, 'Логин:' %>
+        <%= text_field_tag :name, params[:name] %>
+      </div>
+      <div>
+        <%= label_tag :password, 'Пароль:' %>
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+      <div>
+        <%= submit_tag "Войти" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
