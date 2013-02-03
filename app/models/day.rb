@@ -4,7 +4,6 @@ class Day < ActiveRecord::Base
 	has_many :subjects, :order =>"num", dependent: :destroy
 	before_save :ensure_days_amount
 	DAY_NAMES = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"]
-	validates :group_id, presence: true
 	accepts_nested_attributes_for :subjects, allow_destroy: true
 
 	private
