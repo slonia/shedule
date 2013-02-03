@@ -14,8 +14,13 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
+
+var auto_name_tags=[];
+var auto_place_tags=[];
+var auto_teacher_tags=[];
 $(document).ready(function() {
     $('div[id^="sorts_"]').sortable();
+
 });
 function renum()
 {

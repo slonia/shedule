@@ -1,10 +1,10 @@
 <fieldset class="sub" >
 	<%= f.label :name, "Название" %>
-	<%= f.text_field :name, :size => nil %>
+	<%= f.text_field :name, :size => nil, :id => "auto_name" %>
 	<%= f.label :place, "Место" %>
-	<%= f.text_field :place, :size => nil %>
+	<%= f.text_field :place, :size => nil, :id => "auto_place" %>
 	<%= f.label :teacher, "Преподаватель"%>
-	<%= f.text_field :teacher, :size => nil %>
+	<%= f.text_field :teacher, :size => nil, :id => "auto_teacher" %>
 	<%= f.label :sub_type, "Тип" %>
 	<%= f.select :sub_type, options_for_select(Array[*Subject::S_TYPES.collect {|v,i| [v,Subject::S_TYPES.index(v)] }]) %>
 	<%= f.hidden_field :num, :size => nil, :class => "numpan" %>

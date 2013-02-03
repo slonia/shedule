@@ -8,8 +8,17 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    inps=$('input[id^="auto_"]')
+    jQuery.each inps, ->
+    	$(this).autocomplete({
+      		source: window[$(this).attr('id')+'_tags']
+    	});
+    	$(this).blur -> 
+    		if jQuery.inArray($(this).val(), window[$(this).attr('id')+'_tags'])==-1
+    			window[$(this).attr('id')+'_tags'].push($(this).val())
 
    $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
     event.preventDefault()
+ 

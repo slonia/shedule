@@ -7,12 +7,14 @@ body
 	background-image: url(back2.jpg);
 	margin: 0;
 	cursor: default;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 #content
 {
 	background-image: url(back.jpg);
 	min-height: 700px;
-	width: 800px;
+	width: auto;
 	margin: 0 auto;
 	padding: 20px;
 	border-left: 1px solid black;
