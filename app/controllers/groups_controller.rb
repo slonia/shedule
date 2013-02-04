@@ -13,6 +13,24 @@ class GroupsController < ApplicationController
   def select
     @groups = Group.find_all_by_course_id(params[:course])
     @groups = @groups.sort_by(&:name)
+    @subjects=[]
+    @names=[]
+    @teachers=[]
+    @places=[]
+    @groups.each do |group|
+      days = Day.find_all_by_group_id(group.id)
+      days.each do |day|
+        @subjects+=Subject.find_all_by_day_id(day.id)
+      end
+    end
+    @subjects.each do |subject|
+      @names.push subject.name
+      @teachers.push subject.teacher
+      @places.push subject.place
+    end
+    @names.uniq
+    @teachers.uniq
+    @places.uniq
     respond_to do |format|
       format.js
       format.json { render json: @faculties }
