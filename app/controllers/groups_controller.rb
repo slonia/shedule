@@ -28,9 +28,9 @@ class GroupsController < ApplicationController
       @teachers.push subject.teacher
       @places.push subject.place
     end
-    @names.uniq
-    @teachers.uniq
-    @places.uniq
+    @names=@names.uniq.sort
+    @teachers=@teachers.uniq.sort
+    @places=@places.uniq.sort
     respond_to do |format|
       format.js
       format.json { render json: @faculties }
