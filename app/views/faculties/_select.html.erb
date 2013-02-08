@@ -1,5 +1,5 @@
 <% unless @faculties.size.zero? %>
 	<%= form_tag({:controller => "courses", :action => "select"}, :remote => true, :id => "f_subm") do%>
-		<%= select_tag "faculty", options_from_collection_for_select(@faculties, "id", "name"),:onchange => "$('#f_subm').submit()", :prompt => "Выберите ваш факультет" %>
+		<%= select_tag "faculty", options_from_collection_for_select(@faculties, "id", "name"),:onchange => "$('#f_subm').submit()", :prompt => "Факультет" %>
 	<% end %>
 <% end %>

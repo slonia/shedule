@@ -15,6 +15,7 @@ Timetable::Application.routes.draw do
   post "faculties/select"
   post "courses/select"
   post "groups/select"
+  post "groups/show"
   resources :users
 
   resources :subjects

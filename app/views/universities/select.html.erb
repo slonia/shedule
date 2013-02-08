@@ -1,3 +1,3 @@
 <%= form_tag({:controller => "faculties", :action => "select"}, :remote => true, :id => "u_subm") do %>
-  <%= select_tag "university", options_from_collection_for_select(@universities, "id", "name"), :onchange => "$('#u_subm').submit()", :prompt => "Выберите ваш ВУЗ" %>
+  <%= select_tag "university", options_from_collection_for_select(@universities, "id", "name"), :onchange => "$('#u_subm').submit()", :prompt => "ВУЗ" %>
 <% end %>

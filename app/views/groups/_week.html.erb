@@ -13,13 +13,15 @@
    <% subs[day.num-1]=mas %>
 <% end %>
 <% if rows>0 %>
-<table id="week_timetable">
+<table class="table table-bordered">
+   <thead>
    <% for i in 0...cols %>
-      <th>
+      <th class="day">
       <%= Day::DAY_NAMES[i] %>
       </th>
    <% end %>
-
+   </thead>
+   <tbody>
    <% for i in 0...rows %>
       <tr>
          <% for j in 0...cols %>
@@ -28,8 +30,8 @@
                <td>
                </td>
             <% else %>
-               <td class="td_day">
-               <div class="stype">
+               <td class="<%= 'td_color_'+subjects[i].sub_type.to_s %>">
+               <div class="sname">
                   <%= subjects[i].name %>
                </div>
                <%= subjects[i].teacher || "<br>" %><br>
@@ -39,8 +41,23 @@
          <% end %>
       </tr>
    <% end %>
-
+</tbody>
 </table>
 <% end %>
-<hr>
 <br>
+<div class="well well-small" id="ex_b">
+<div>Открыть в формате...</div>
+<div class="btn-group pull-right">
+   <%= link_to 'HTML', group, class: 'btn', target: '_blank' %>
+   <%= link_to 'PDF', '/groups/'+group.id.to_s+'.pdf', class: 'btn', target: '_blank'  %>
+   <%= link_to 'XLS', '#', class: 'btn', target: '_blank'  %>
+</div>
+</div>
+<div class="colors">
+            <div class="square_1">&nbsp;&nbsp;</div><div class="text"> - Лекции</div>
+            <div class="square_2">&nbsp;&nbsp;</div><div> - Практики</div><br> 
+            <div class="square_3">&nbsp;&nbsp;</div><div class="text"> - Лекции/Практики</div>
+            <div class="square_4">&nbsp;&nbsp;</div><div> - Лабораторные</div><br>
+            <div class="square_5">&nbsp;&nbsp;</div><div class="text"> - Семинары</div>
+            <div class="square_6">&nbsp;&nbsp;</div><div> - Форточка</div><br>
+         </div>

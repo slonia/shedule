@@ -44,11 +44,12 @@ class GroupsController < ApplicationController
     @days = @days.sort_by(&:num)
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.xml
+      format.pdf
       format.json { render json: @group }
     end
   end
-
   # GET /groups/new
   # GET /groups/new.json
   def new

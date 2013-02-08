@@ -1,0 +1,5 @@
+<% unless @groups.size.zero? %>
+	<%= form_tag({:controller => "groups", :action => "show"}, :remote => true, :id => "w_subm") do%>
+		<%= select_tag "id", options_from_collection_for_select(@groups, "id", "name"), :onchange => "$('#w_subm').submit()", :prompt => "Группа" %>
+	<% end %>
+<% end %>
