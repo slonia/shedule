@@ -1,7 +1,7 @@
-<fieldset>
+<fieldset class="day_fields">
   <%= f.hidden_field :num, :class => "numpan2" %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to "Удалить день", '#', class: "remove_fields" %>
+  <%= link_to "Удалить день", '#', class: "remove_fields btn btn-danger btn-mini" %>
   <div id="sorts_s_<%= f.object.id %>">
   <%= f.fields_for :subjects do |builder| %>
     <%= render 'subject_fields', f: builder %>

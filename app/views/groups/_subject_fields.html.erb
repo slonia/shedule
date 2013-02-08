@@ -1,4 +1,4 @@
-<fieldset class="sub" >
+<fieldset class="sub">
 	<%= f.label :name, "Название" %>
 	<%= f.text_field :name, :size => nil, :id => "auto_name" %>
 	<%= f.label :place, "Место" %>
@@ -10,5 +10,5 @@
 	<%= f.hidden_field :num, :size => nil, :class => "numpan" %>
      <br>
       <%= f.hidden_field :_destroy %>
-      <%= link_to "Удалить предмет", '#', class: "remove_fields" %>
+      <%= link_to "Удалить предмет", '#', class: "remove_fields btn btn-danger btn-mini" %>
 </fieldset>

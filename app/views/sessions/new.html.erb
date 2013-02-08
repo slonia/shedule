@@ -1,13 +1,11 @@
-<div class="div_cp">
-Доступ к странице ограничен
-</div>
-<div class="div_st">
+
+<div class="well well-small">
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
   <%= form_tag do %>
     <fieldset>
-      Введите ваши данные:
+      <legend>Введите ваши данные:</legend>
       <div>
         <%= label_tag :name, 'Логин:' %>
         <%= text_field_tag :name, params[:name] %>
@@ -17,7 +15,7 @@
         <%= password_field_tag :password, params[:password] %>
       </div>
       <div>
-        <%= submit_tag "Войти" %>
+        <%= submit_tag "Войти", class: 'btn' %>
       </div>
     </fieldset>
   <% end %>

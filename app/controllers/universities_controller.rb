@@ -4,7 +4,6 @@ class UniversitiesController < ApplicationController
   skip_before_filter :authorize, only: [:select, :index, :show]
   def index
     @universities = University.order(:name)
-
     respond_to do |format|
       format.xml
       format.html # index.html.erb

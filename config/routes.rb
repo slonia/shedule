@@ -24,7 +24,6 @@ Timetable::Application.routes.draw do
 
   resources :groups
 
-  resources :courses
 
   resources :faculties
 
