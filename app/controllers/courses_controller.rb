@@ -11,6 +11,15 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    @course = Course.find(params[:id])
+    @groups = Group.find_all_by_course_id(@course.id)
+    @groups = @groups.sort_by(&:name)
+    respond_to do |format|
+      format.xml
+      format.json { render json: @course }
+    end
+  end
   # GET /courses/new
   # GET /courses/new.json
   def new

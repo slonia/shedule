@@ -1,5 +1,5 @@
 <% unless @faculties.size.zero? %>
 	<%= form_tag({:controller => "courses", :action => "select"}, :remote => true, :id => "f_subm") do%>
-		<%= select_tag "faculty",  options_for_select(bootstrap_shortener(@faculties)),:onchange => "$('#f_subm').submit()", :prompt => "Факультет" %>
+		<%= select_tag "faculty",  options_for_select(@faculties),:onchange => "$('#f_subm').submit()", :prompt => "Факультет" %>
 	<% end %>
 <% end %>
