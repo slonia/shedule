@@ -1,6 +1,5 @@
-@import "bootstrap";
-@import "bootstrap-responsive";
-
+//= require bootstrap 
+//= require bootstrap-responsive
 html, body{
     margin:0;
     padding:0;
