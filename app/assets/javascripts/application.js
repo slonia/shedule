@@ -22,7 +22,7 @@ var auto_teacher_tags=[];
 
 $(document).ready(function() {
     $('div[id^="sorts_"]').sortable();
-    $( document ).tooltip({track: true});
+    $(document).tooltip({track: true});
 });
 function renum()
 {

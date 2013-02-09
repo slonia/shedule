@@ -1,3 +1,4 @@
 $('#group_div').html('<%=j render "select" %>');
 $('#group_course_id').val($('#course').find(":selected").val());
+$('#timetable_div').html("");
 auto_fill("<%= @course_id %>");
