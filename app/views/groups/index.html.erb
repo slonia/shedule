@@ -1,7 +1,4 @@
-<div class="div_cp">
-  Группы
-</div>
-<div class="div_st">
+<h3>Список групп</h3>
 <table class="table table-striped">
   <tr>
     <th>Название</th>
@@ -9,27 +6,27 @@
     <th>Факультет</th>
     <th>Вуз</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @groups.each do |group| %>
   <% course=Course.find(group.course_id) %>
   <% faculty=Faculty.find(course.faculty_id) %>
   <% university=University.find(faculty.university_id) %>
-  <tr class="<%= cycle("odd", "even") %>">
+  <tr>
     <td><%= group.name %></td>
     <td><%= course.num %></td>
     <td><%= faculty.name %></td>
     <td><%= university.name %></td>
-    <td><%= link_to 'Показать', group %></td>
-    <td><%= link_to 'Редактировать', edit_group_path(group) %></td>
-    <td><%= link_to 'Удалить', group, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <div class="btn-group">
+      <%= link_to 'Показать', group, class: 'btn' %>
+      <%= link_to 'Редактировать', edit_group_path(group), class: 'btn' %>
+      <%= link_to 'Удалить', group, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %>
+      </div>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'Добавить', new_group_path %>
-</div>
+<%= link_to 'Добавить', new_group_path, class: 'btn btn-primary' %>

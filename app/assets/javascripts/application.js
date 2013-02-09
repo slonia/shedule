@@ -19,9 +19,10 @@
 var auto_name_tags=[];
 var auto_place_tags=[];
 var auto_teacher_tags=[];
+
 $(document).ready(function() {
     $('div[id^="sorts_"]').sortable();
-
+    $( document ).tooltip({track: true});
 });
 function renum()
 {
@@ -51,4 +52,23 @@ function renum()
 		
    });
 	$("form").submit();
+}
+function auto_fill (course) {
+	$.ajax({
+  url: '/groups/gen_autocomp.json?course='+course,
+  success: function(data) {
+    // call it again after one second
+    auto_name_tags=data["names"];
+	auto_place_tags=data["places"];
+	auto_teacher_tags=data["teachers"];
+	inps=$('input[id^="auto_"]')
+    jQuery.each(inps, function() {
+    	$(this).autocomplete({
+      		source: window[$(this).attr('id')+'_tags']
+    	})
+    });
+  },
+  cache: false,
+  dataType: "json"
+});
 }

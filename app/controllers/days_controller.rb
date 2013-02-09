@@ -1,28 +1,7 @@
 class DaysController < ApplicationController
   # GET /days
   # GET /days.json
-  def index
-    @days = Day.order(:num)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @days }
-    end
-  end
-
-  # GET /days/1
-  # GET /days/1.json
-  def show
-    @day = Day.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @day }
-    end
-  end
-
-  # GET /days/new
-  # GET /days/new.json
   def new
     @day = Day.new
 

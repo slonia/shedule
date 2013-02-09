@@ -6,7 +6,4 @@ class MainController < ApplicationController
 
   def admin
   end
-
-  def about
-  end
 end

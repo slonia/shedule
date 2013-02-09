@@ -1,8 +1,8 @@
-<div class="div_cp">Пользователь</div>
-<div class="div_st">
+<h3>Пользователь</h3>
  <%= @user.name %>
- <%= link_to 'Редактировать', edit_user_path(@user) %> |
-<%= link_to 'Назад', users_path %>
+ <div class='btn-group'>
+ <%= link_to 'Редактировать', edit_user_path(@user), class: 'btn' %> 
+<%= link_to 'Назад', users_path, class: 'btn' %>
 </div>
 
 

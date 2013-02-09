@@ -6,6 +6,10 @@
 </div>
 <div id="course_div">
 </div>
+<% else %>
+<script type="text/javascript">
+auto_fill("<%= @group.course_id %>");
+</script>
 <% end %>
 <%= form_for(@group, :html => {:id=>"gr_f"} ) do |f| %>
   <% if @group.errors.any? %>
@@ -29,13 +33,11 @@
   <div class="field">
   <%= f.hidden_field :course_id %>
 </div>
-  <div id="sorts_d_<%= f.object.id %>">
+  <div id="sorts_d_<%= f.object_name.gsub(/[^0-9]+/,'') %>">
   <%= f.fields_for :days do |builder| %>
     <%= render 'day_fields', f: builder %>
   <% end %>
   <%= link_to_add_fields "Добавить день", f, :days %>
   </div>
-  <div class="actions">
     <%= button_to_function "Отправить", "renum()", class: 'btn btn-primary'%>
-  </div>
 <% end %>

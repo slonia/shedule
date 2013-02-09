@@ -1,9 +1,9 @@
-<div class="div_cp">
+<h3>
 	Редактирование
-</div>
-<div class="div_st">
+</h3>
 <%= render 'form' %>
 
-<%= link_to 'Показать', @user %> |
-<%= link_to 'Назад', users_path %>
+<div class='btn-group'>
+<%= link_to 'Показать', @user, class: 'btn' %> 
+<%= link_to 'Назад', users_path, class: 'btn' %>
 </div>

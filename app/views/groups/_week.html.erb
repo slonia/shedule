@@ -30,7 +30,7 @@
                <td>
                </td>
             <% else %>
-               <td class="<%= 'td_color_'+subjects[i].sub_type.to_s %>">
+               <td class="<%= 'td_color_'+subjects[i].sub_type.to_s %>" >
                <div class="sname">
                   <%= subjects[i].name %>
                </div>
@@ -48,26 +48,29 @@
 <div class="well well-small" id="ex_b">
 <div>Открыть в формате...</div>
 <div class="btn-group pull-right">
+    <% if session[:user_id] %>
+      <%= link_to 'РЕДАКТИРОВАТЬ', edit_group_path(group), class: 'btn', target: '_blank' %>
+  <% end %>
    <%= link_to 'HTML', group, class: 'btn', target: '_blank' %>
    <%= link_to 'PDF', '/groups/'+group.id.to_s+'.pdf', class: 'btn', target: '_blank'  %>
-   <%= link_to 'XLS', '#', class: 'btn', target: '_blank'  %>
+   <%= link_to 'XLS', '#', class: 'btn', title: 'Данная функция еще в разработке'  %>
 </div>
 </div>
 <div class="colors">
-              <div class="td_color_0 square">&nbsp;&nbsp;</div><div> - Лекции</div>
+              <div class="td_color_0 square">&nbsp;&nbsp;</div><div> - Лекция</div>
             </div>
             <div class="colors">
-              <div class="td_color_1 square">&nbsp;&nbsp;</div><div> - Практики</div>
+              <div class="td_color_1 square">&nbsp;&nbsp;</div><div> - Практика</div>
             </div>
             <div class="colors">
-              <div class="td_color_2 square">&nbsp;&nbsp;</div><div > - Лекции/Практики</div>
+              <div class="td_color_2 square">&nbsp;&nbsp;</div><div > - Семинар</div>
             </div>
             <div class="colors">
-              <div class="td_color_3 square">&nbsp;&nbsp;</div><div> - Лабораторные</div>
+              <div class="td_color_3 square">&nbsp;&nbsp;</div><div> - Лабораторная работа</div>
             </div>
             <div class="colors">
-              <div class="td_color_4 square">&nbsp;&nbsp;</div><div> - Семинары</div>
+              <div class="td_color_4 square">&nbsp;&nbsp;</div><div> - Другое</div>
             </div>
             <div class="colors">
-              <div class="td_color_5 square">&nbsp;&nbsp;</div><div> - Форточка</div>
+              <div class="td_color_5 square">&nbsp;&nbsp;</div><div> - Свободное время</div>
           </div>

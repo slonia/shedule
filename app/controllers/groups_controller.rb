@@ -13,6 +13,16 @@ class GroupsController < ApplicationController
   def select
     @groups = Group.find_all_by_course_id(params[:course])
     @groups = @groups.sort_by(&:name)
+    @course_id=params[:course]
+    respond_to do |format|
+      format.js
+      format.json { render json: @faculties }
+    end
+  end
+
+  def gen_autocomp
+    @groups = Group.find_all_by_course_id(params[:course])
+    @groups = @groups.sort_by(&:name)
     @subjects=[]
     @names=[]
     @teachers=[]
@@ -28,12 +38,11 @@ class GroupsController < ApplicationController
       @teachers.push subject.teacher
       @places.push subject.place
     end
-    @names=@names.uniq.sort
-    @teachers=@teachers.uniq.sort
-    @places=@places.uniq.sort
+    @names=@names.uniq.sort.reject(&:empty?)
+    @teachers=@teachers.uniq.sort.reject(&:empty?)
+    @places=@places.uniq.sort.reject(&:empty?)
     respond_to do |format|
-      format.js
-      format.json { render json: @faculties }
+      format.json  { render :json =>  {:names => @names, :teachers => @teachers, :places => @places }}
     end
   end
   # GET /groups/1

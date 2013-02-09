@@ -2,31 +2,12 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   skip_before_filter :authorize, only: [:select, :show]
-  def index
-    @courses = Course.order(:faculty_id)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @courses }
-    end
-  end
   def select
     @courses = Course.find_all_by_faculty_id(params[:faculty])
     @courses = @courses.sort_by(&:num)
     respond_to do |format|
       format.js
       format.json { render json: @courses }
-    end
-  end
-  # GET /courses/1
-  # GET /courses/1.json
-  def show
-    @course = Course.find(params[:id])
-    @groups = Group.find_all_by_course_id(@course.id)
-    @groups = @groups.sort_by(&:name)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml
-      format.json { render json: @course }
     end
   end
 

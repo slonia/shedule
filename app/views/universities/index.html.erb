@@ -1,31 +1,23 @@
-<div class="div_cp">
-Университеты
-</div>
-<div class="div_st">
+<h3>Список университетов</h3>
 <table class="table table-striped">
-  <tr>
-    <th>Название</th>
-    <th></th>
-    <% if session[:user_id] %>
-    <th></th>
-    <th></th>
-    <% end %>
-  </tr>
 
 <% @universities.each do |university| %>
-  <tr class="<%= cycle("odd", "even") %>">
+  <tr>
     <td><%= university.name %></td>
-    <td><%= link_to 'Показать', university %></td>
-    <% if session[:user_id] %>
-    <td><%= link_to 'Редактировать', edit_university_path(university) %></td>
-    <td><%= link_to 'Удалить', university, confirm: 'Вы уверены?', method: :delete %></td>
-    <% end %>
+    <td>
+      
+      <% if session[:user_id] %>
+        <div class='btn-group'>
+        <%= link_to 'Редактировать', edit_university_path(university), class: 'btn' %>
+        <%= link_to 'Удалить', university, confirm: 'Вы уверены?', method: :delete, class: 'btn btn-danger' %>
+        </div>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 <% if session[:user_id] %>
-<%= link_to 'Добавить', new_university_path %>
+<%= link_to 'Добавить', new_university_path, class: 'btn btn-primary' %>
 <% end %>
-</div>

@@ -2,14 +2,6 @@ class FacultiesController < ApplicationController
   # GET /faculties
   # GET /faculties.json
   skip_before_filter :authorize, only: [:select, :show]
-  def index
-    @faculties = Faculty.order(:university_id)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @faculty }
-    end
-  end
   def select
     @faculties = Faculty.find_all_by_university_id(params[:university])
     @faculties = @faculties.sort_by(&:name)
@@ -56,7 +48,7 @@ class FacultiesController < ApplicationController
 
     respond_to do |format|
       if @faculty.save
-        format.html { redirect_to @faculty, notice: 'Faculty was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Faculty was successfully created.' }
         format.json { render json: @faculty, status: :created, location: @faculty }
       else
         format.html { render action: "new" }
@@ -72,7 +64,7 @@ class FacultiesController < ApplicationController
 
     respond_to do |format|
       if @faculty.update_attributes(params[:faculty])
-        format.html { redirect_to @faculty, notice: 'Faculty was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Faculty was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -88,7 +80,7 @@ class FacultiesController < ApplicationController
     @faculty.destroy
 
     respond_to do |format|
-      format.html { redirect_to faculties_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

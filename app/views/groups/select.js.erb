@@ -1,4 +1,3 @@
 $('#group_div').html('<%=j render "select" %>');
-auto_name_tags=<%= raw @names.to_json %>;
-auto_place_tags=<%= raw @places.to_json %>;
-auto_teacher_tags=<%= raw @teachers.to_json %>;
+$('#group_course_id').val($('#course').find(":selected").val());
+auto_fill("<%= @course_id %>");

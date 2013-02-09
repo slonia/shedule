@@ -12,20 +12,20 @@ Timetable::Application.routes.draw do
   end
   
   get "universities/index"
+  get "groups/gen_autocomp"
+  post "groups/gen_autocomp"
   post "faculties/select"
   post "courses/select"
   post "groups/select"
   post "groups/show"
+
   resources :users
-
-  resources :subjects
-
-  resources :days
 
   resources :groups
 
+  resources :courses, only: :show
 
-  resources :faculties
+  resources :faculties, only: :show
 
   resources :universities
 

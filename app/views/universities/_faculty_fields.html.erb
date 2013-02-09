@@ -2,10 +2,11 @@
       <%= f.label :name, "Название факультета" %>
       <%= f.text_field :name %>
       <%= f.hidden_field :_destroy %>
-      <%= link_to "Удалить факультет", '#', class: "remove_fields" %>
+      <%= button_to_function "Удалить факультет", '#', class: "remove_fields btn btn-danger btn-small" %>
       <br>
       <%= f.fields_for :courses do |builder| %>
       	<%= render 'course_fields', f: builder %>
       <% end %>
       <%= link_to_add_fields "Добавить курс", f, :courses %>
 </fieldset>
+<br>

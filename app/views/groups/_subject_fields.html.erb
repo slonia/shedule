@@ -6,9 +6,13 @@
 	<%= f.label :teacher, "Преподаватель"%>
 	<%= f.text_field :teacher, :size => nil, :id => "auto_teacher" %>
 	<%= f.label :sub_type, "Тип" %>
-	<%= f.select :sub_type, options_for_select(Array[*Subject::S_TYPES.collect {|v,i| [v,Subject::S_TYPES.index(v)] }]) %>
+	<% if params[:action]=='new' %>
+		<%= f.select :sub_type, options_for_select(Array[*Subject::S_TYPES.collect {|v,i| [v,Subject::S_TYPES.index(v)] }]) %>
+	<% else %>
+		<%= f.select :sub_type, options_for_select(Array[*Subject::S_TYPES.collect {|v,i| [v,Subject::S_TYPES.index(v)] }], selected: f.object.sub_type)%>
+	<% end %>	
 	<%= f.hidden_field :num, :size => nil, :class => "numpan" %>
      <br>
       <%= f.hidden_field :_destroy %>
-      <%= link_to "Удалить предмет", '#', class: "remove_fields btn btn-danger btn-mini" %>
+      <%= button_to_function "Удалить предмет", '#', class: "remove_fields btn btn-danger btn-small" %>
 </fieldset>

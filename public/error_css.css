@@ -1,0 +1,35 @@
+html
+{
+  background-color: black;
+}
+body{
+    margin:0;
+    background:url(error.png) black no-repeat;        
+}
+.error{
+  margin:0 auto;
+  overflow:hidden;
+  width:900px;     
+}
+.words {  
+  float:left;
+  width:440px;
+  padding:190px 0  0 170px; 
+}
+h1{
+  color:white; 
+  letter-spacing: -1px;
+  color:white;
+  font-family: Verdana,sans-serif;
+  font-weight: normal;  
+}
+.number p{  
+  color:#e4dddd;
+  font-size:12em;    
+}
+p{
+  font-size:15pt;
+}
+.words a{
+  color:#0088CC;
+}

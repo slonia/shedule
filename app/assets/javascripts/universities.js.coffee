@@ -8,6 +8,7 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    $('div[id^="sorts_"]').sortable();
     inps=$('input[id^="auto_"]')
     jQuery.each inps, ->
     	$(this).autocomplete({

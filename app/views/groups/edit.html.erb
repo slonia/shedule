@@ -1,12 +1,12 @@
+
+<div class="well well-small">
 <% course = Course.find(@group.course_id) %>
 <% fac = Faculty.find(course.faculty_id) %>
 <% univ = University.find(fac.university_id) %>
-<div class="div_cp">
-<%= "Редактирование группы - #{univ.name}, #{fac.name}, #{course.num} курс"%>
-</div>
-<div class="well well-small">
+<h3><%= "#{univ.name}, #{fac.name}, #{course.num} курс"%><%= link_to 'Удалить', @group, confirm: 'Вы уверены?', method: :delete, class: 'btn btn-danger' %></h3>
 <%= render 'form' %>
-
-<%= link_to 'Показать', @group %> |
-<%= link_to 'Назад', groups_path %>
+<div class="btn-group">
+<%= link_to 'Показать', @group, class: 'btn' %> 
+<%= link_to 'Назад', groups_path, class: 'btn'  %>
+</div>
 </div>
