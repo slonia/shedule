@@ -116,14 +116,14 @@ td, .td_color_5
 }
 #ex_b
 {
-  display: table;
-  width: 100%; 
+  width: auto;
   font-weight: bold;
+  overflow:auto;
 }
 #ex_b div
 {
-  display: table-cell;
-  vertical-align: middle;
+  display: inline-block;
+ vertical-align: middle;
 }
 .btn 
 {
@@ -205,4 +205,37 @@ fieldset
   
   border: 1px solid #e3e3e3;
   border-radius: 4px;
+}
+#share42{
+  float:left;
+  width:30px;
+  margin-top:20px;
+  cursor:pointer;
+  padding:3px; 
+  background: #FFF; 
+  border: 1px solid #E9E9E9; 
+  border-radius: 4px;
+}
+#share42 a {
+  position:relative;
+}
+#share42:hover {
+  background: #F6F6F6; 
+  border: 1px solid #D4D4D4; 
+  box-shadow: 0 0 5px #DDD;
+}
+#share42 a {
+  opacity: 0.5;  
+}
+#share42:hover a {
+  opacity: 0.7
+}
+#share42 a:hover {
+  opacity: 1
+}
+#share42 a img{
+  margin-bottom:2px;
+}
+#share42 {
+    position: fixed;    
 }

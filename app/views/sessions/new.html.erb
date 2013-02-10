@@ -4,7 +4,6 @@
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
   <%= form_tag do %>
-    <fieldset>
       <legend>Введите ваши данные:</legend>
       <div>
         <%= label_tag :name, 'Логин:' %>
@@ -17,6 +16,5 @@
       <div>
         <%= submit_tag "Войти", class: 'btn' %>
       </div>
-    </fieldset>
   <% end %>
 </div>

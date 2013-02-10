@@ -1,2 +1,53 @@
-/* share42.com | 04.02.2013 | (c) Dimox */
-(function($){$(function(){$('div.share42init').each(function(idx){var el=$(this),u=el.attr('data-url'),t=el.attr('data-title'),i=el.attr('data-image'),d=el.attr('data-description'),f=el.attr('data-path'),m1=el.attr('data-top1'),m2=el.attr('data-top2')*1,m3=el.attr('data-margin');function fb_count(url){var shares;$.getJSON('http://graph.facebook.com/?callback=?&ids='+url,function(data){shares=(data[url].shares||0);el.find('a[data-count="fb"]').html('<span>'+shares+'</span>');});}fb_count(u);function twi_count(url){var shares;$.getJSON('http://urls.api.twitter.com/1/urls/count.json?callback=?&url='+url,function(data){shares=data.count;el.find('a[data-count="twi"]').html('<span>'+shares+'</span>');});}twi_count(u);function mail_count(url){var shares;$.getJSON('http://connect.mail.ru/share_count?callback=1&func=?&url_list='+url,function(data){shares=(data.hasOwnProperty(url))?data[url].shares:0;el.find('a[data-count="mail"]').html('<span>'+shares+'</span>');});}mail_count(u);function pin_count(url){var shares;$.getJSON('http://api.pinterest.com/v1/urls/count.json?callback=?&url='+url,function(data){shares=data.count;el.find('a[data-count="pin"]').html('<span>'+shares+'</span>');});}pin_count(u);function lnkd_count(url){var shares;$.getJSON('http://www.linkedin.com/countserv/count/share?callback=?&url='+url,function(data){shares=data.count;el.find('a[data-count="lnkd"]').html('<span>'+shares+'</span>');});}lnkd_count(u);function dlcs_count(url){var shares;$.getJSON('http://feeds.delicious.com/v2/json/urlinfo/data?callback=?&url='+url,function(data){shares=data[0]?data[0].total_posts:0;el.find('a[data-count="dlcs"]').html('<span>'+shares+'</span>');});}dlcs_count(u);function vk_count(url){var shares;$.getScript('http://vk.com/share.php?act=count&index='+idx+'&url='+url);if(!window.VK)window.VK={};window.VK.Share={count:function(idx,number){shares=number;$('div.share42init').eq(idx).find('a[data-count="vk"]').html('<span>'+shares+'</span>');}};}vk_count(u);function odkl_count(url){var shares;$.getScript('http://www.odnoklassniki.ru/dk?st.cmd=extLike&uid='+idx+'&ref='+url);if(!window.ODKL)window.ODKL={};window.ODKL.updateCount=function(idx,number){shares=number;$('div.share42init').eq(idx).find('a[data-count="odkl"]').html('<span>'+shares+'</span>');}}odkl_count(u);function ya_count(url){var shares;$.getScript('http://wow.ya.ru/ajax/share-counter.xml?url='+url);if(!window.Ya)window.Ya={};window.Ya.Share={showCounter:function(number){shares=number;$('div.share42init').eq(idx).find('a[data-count="ya"]').html('<span>'+shares+'</span>');}};}ya_count(u);if(!f){function path(name){var sc=document.getElementsByTagName('script'),sr=new RegExp('^(.*/|)('+name+')([#?]|$)');for(var i=0,scL=sc.length;i<scL;i++){var m=String(sc[i].src).match(sr);if(m){if(m[1].match(/^((https?|file)\:\/{2,}|\w:[\/\\])/))return m[1];if(m[1].indexOf("/")==0)return m[1];b=document.getElementsByTagName('base');if(b[0]&&b[0].href)return b[0].href+m[1];else return document.location.pathname.match(/(.*[\/\\])/)[0]+m[1];}}return null;}f=path('share42.js');}if(!u)u=location.href;if(!t)t=document.title;if(!i)i='';if(!d){var meta=$('meta[name="description"]').attr('content');if(meta!==undefined)d=meta;else d='';}if(!m1)m1=150;if(!m2)m2=20;if(!m3)m3=0;u=encodeURIComponent(u);t=encodeURIComponent(t);t=t.replace('\'','%27');i=encodeURIComponent(i);d=encodeURIComponent(d);var s=new Array('"https://www.evernote.com/clip.action?url='+u+'&title='+t+'" title="Добавить в Evernote"','"#" data-count="fb" onclick="window.open(\'http://www.facebook.com/sharer.php?s=100&p[url]='+u+'&p[title]='+t+'&p[summary]='+d+'&p[images][0]='+i+'\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться в Facebook"','"#" onclick="window.open(\'https://plus.google.com/share?url='+u+'\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться в Google+"','"#" data-count="odkl" onclick="window.open(\'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl='+u+'&title='+t+'\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Добавить в Одноклассники"','"#" data-count="twi" onclick="window.open(\'https://twitter.com/intent/tweet?text='+t+'&url='+u+'\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Добавить в Twitter"','"#" data-count="vk" onclick="window.open(\'http://vk.com/share.php?url='+u+'&title='+t+'&image='+i+'&description='+d+'\', \'_blank\', \'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0\');return false" title="Поделиться В Контакте"');var l='';for(j=0;j<s.length;j++){var s42s='';l+='<a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url('+f+'icons.png) -'+32*j+'px 0 no-repeat" href='+s[j]+' target="_blank"></a>'+s42s;};el.html('<span id="share42" style="position:fixed;z-index:9999;margin-left:'+m3+'px">'+l+'</span>');var p=$('#share42');function m(){var top=$(window).scrollTop();if(top+m2<m1){p.css({top:m1-top});}else{p.css({top:m2});}}m();$(window).scroll(function(){m();})});})})(jQuery);
+
+    var purl="http://simdule.herokuapp.com/";
+    var ptitle="Расписание";
+    var text="Сайт с  удобным расписанием! Попробуй!"
+Share = {
+    vkontakte: function() {
+        url  = 'http://vkontakte.ru/share.php?';
+        url += 'url='          + encodeURIComponent(purl);
+        url += '&title='       + encodeURIComponent(ptitle);
+        url += '&description=' + encodeURIComponent(text);
+        url += '&noparse=true';
+        Share.popup(url);
+    },
+    odnoklassniki: function() {
+        url  = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
+        url += '&st.comments=' + encodeURIComponent(text);
+        url += '&st._surl='    + encodeURIComponent(purl);
+        Share.popup(url);
+    },
+    facebook: function() {
+        url  = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]='     + encodeURIComponent(ptitle);
+        url += '&p[summary]='   + encodeURIComponent(text);
+        url += '&p[url]='       + encodeURIComponent(purl);
+        Share.popup(url);
+    },
+      evernote: function() {
+        url  = 'http://www.evernote.com/sharer.php?s=100';
+        url += '&p[title]='     + encodeURIComponent(ptitle);
+        url += '&p[summary]='   + encodeURIComponent(text);
+        url += '&p[url]='       + encodeURIComponent(purl);
+        Share.popup(url);
+    },
+
+    twitter: function() {
+        url  = 'http://twitter.com/share?';
+        url += 'text='      + encodeURIComponent(ptitle);
+        url += '&url='      + encodeURIComponent(purl);
+        url += '&counturl=' + encodeURIComponent(purl);
+        Share.popup(url);
+    },
+    mailru: function(purl, ptitle, pimg, text) {
+        url  = 'http://connect.mail.ru/share?';
+        url += 'url='          + encodeURIComponent(purl);
+        url += '&title='       + encodeURIComponent(ptitle);
+        url += '&description=' + encodeURIComponent(text);
+        Share.popup(url)
+    },
+
+    popup: function(url) {
+        window.open(url,'','toolbar=0,status=0,width=626,height=436');
+    }
+};
